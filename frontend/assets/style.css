@@ -1,6 +1,10 @@
 header{
     width: 100%;
+<<<<<<< HEAD
     background-color: #3498db;
+=======
+    background-color: #5f5fc4;
+>>>>>>> 8e55fa13f2a9caaf2ebbd64322ffee3bbe18032a
     font-size: 2em;
     font-family: 'Courier New', Courier, monospace;
     top: 0;
@@ -25,7 +29,9 @@ header{
 footer{
     bottom: 0;
     width: 100%;
-    background-color: #3498db;
+
+    background-color: #5f5fc4;
+    color: white;
     text-align: center;
     height: auto;
 }
@@ -36,28 +42,39 @@ header,footer{
 main{
     display: table-row;
     height: 100%;
+    background-color: none;
+    color: black;
 }
 .round-btn{
-    padding: 1em;
+    padding: 0.75em;
     border: 0;
     margin: 0.1em;
-    background: none;
+
+    background-color: #5f5fc4;
+    display: inline-block;
+    text-decoration: none;
+    color: white;
 }
 .round-btn:hover,.round-btn-active{
-    padding: 1em;
+    padding: 0.75em;
     border: 0;
     margin: 0.1em;
     border-color: black;
     border-radius: 0.5em;
     border-width: 0.2em;
-    background-color: #29b6f6;
+    background-color: #283593;
+    color: white;
     cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
 }
 .round-btn:active,.round-btn-active:active,.btn:active{
-    background-color: #0086c3;
+    color: white;
+    background-color: #001064;
 }
 html{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
     font-weight: 100;
     height: 100%;
     margin: 0;
@@ -72,6 +89,10 @@ body{
 .feed{
     text-align: center;
 }
+.center{
+    text-align: center;
+    margin: auto;
+}
 .feed-item{
     border-color: black;
     border-width: 0.1em;
@@ -81,7 +102,6 @@ body{
 }
 .login-form{
     padding: 1em;
-    width: 50%;
     margin: auto;
     font-weight: bold;
     text-align: center;
@@ -90,17 +110,33 @@ body{
     width: 100%;
 }
 .btn{
-    padding: 0.5em 5em;
+
+   
+    text-decoration: none;
+    padding: 0.5em 2em;
+    background-color: #5f5fc4;
     border: 0;
+    color: white;
 }
 .btn:hover{
-    background-color: #29b6f6;
+    background-color: #283593;
 }
 .btn:active{
-    background-color: #0086c3;
+    color: white;
+    background-color: #001064;
 }
 
-.market-list li {
-    height: 64px;
+.img-list li {
     list-style-type: none;
+    border-color: black;
+    border-style: dotted;
+    border-width: 0.1em;
+    border-radius: 0.1em;
+    overflow-wrap: break-word;
+    float: left;
+    width: 15em;
+    margin: 1em;
+}
+.img-icon{
+    width: 15em;
 }

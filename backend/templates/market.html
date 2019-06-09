@@ -45,7 +45,7 @@
 fetch("/api/persons/tobuy").then(response => {return response.json()}).then(json => {
     
     for (person of json) {
-console.log(person)
+        console.log(person)
         var genderName = ""
 
         if (person.gender == "m") {
@@ -57,6 +57,7 @@ console.log(person)
         else if (person.gender == "d") {
             genderName = "Divers"
         }
+        
         var html =`<li><p>${person.first_name} ${person.last_name}</p> <p>${person.age}, ${genderName}</p></li>`
        
        
