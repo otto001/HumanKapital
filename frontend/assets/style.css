@@ -1,15 +1,12 @@
 header{
     width: 100%;
-<<<<<<< HEAD
-    background-color: #3498db;
-=======
     background-color: #5f5fc4;
->>>>>>> 8e55fa13f2a9caaf2ebbd64322ffee3bbe18032a
     font-size: 2em;
     font-family: 'Courier New', Courier, monospace;
     top: 0;
 }
 .header-title{
+    float: left;
     margin: 0.1em;
     padding-left: 1em;
 }
@@ -110,8 +107,6 @@ body{
     width: 100%;
 }
 .btn{
-
-   
     text-decoration: none;
     padding: 0.5em 2em;
     background-color: #5f5fc4;
