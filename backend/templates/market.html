@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="assets/style.css" rel="stylesheet" type="text/css">
+  <link href="static/style.css" rel="stylesheet" type="text/css">
   <link href="
     https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
     rel="stylesheet">
@@ -23,10 +23,7 @@
       </div>
   </header>
   <main>
-    <ul class="market-list">
-      <li>Probieren geht über Studieren</li>
-      <li>Liebe geht über Triebe</li>
-      <li>Tante fällt über Kante</li>
+    <ul class="market-list" id="market-list">
     </ul>
   </main>
 
@@ -35,6 +32,41 @@
     <a href="feed.html"><button class="round-btn"><i class="icon material-icons-outlined">speaker_notes</i><br>Feed</button></a>
     <a href="portfolio.html"><button class="round-btn"><i class="icon material-icons-outlined">table_chart</i><br>Portfolio</button></a>
   </footer>
+  <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
 </body>
 
 </html>
+
+
+<script>
+fetch("/api/persons/tobuy").then(response => {return response.json()}).then(json => {
+    
+    for (person of json) {
+console.log(person)
+        var genderName = ""
+
+        if (person.gender == "m") {
+            genderName = "Männlich"
+        }
+        else if (person.gender == "f") {
+            genderName = "Weiblich"
+        }
+        else if (person.gender == "d") {
+            genderName = "Divers"
+        }
+        var html =`<li><p>${person.first_name} ${person.last_name}</p> <p>${person.age}, ${genderName}</p></li>`
+       
+       
+        $("#market-list").append(html)
+   
+    }
+    
+    
+    
+    })
+
+
+</script>
