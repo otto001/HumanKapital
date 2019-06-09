@@ -23,9 +23,6 @@ header{
     width: 1em;
     height: 1em;
 }
-.icon:hover,.icon:active{
-    color: white;
-}
 footer{
     bottom: 0;
     width: 100%;
@@ -41,22 +38,30 @@ header,footer{
 main{
     display: table-row;
     height: 100%;
+    background-color: none;
+    color: black;
 }
 .round-btn{
-    padding: 1em;
+    padding: 0.75em;
     border: 0;
     margin: 0.1em;
     background-color: #5f5fc4;
+    display: inline-block;
+    text-decoration: none;
+    color: white;
 }
 .round-btn:hover,.round-btn-active{
-    padding: 1em;
+    padding: 0.75em;
     border: 0;
     margin: 0.1em;
     border-color: black;
     border-radius: 0.5em;
     border-width: 0.2em;
     background-color: #283593;
+    color: white;
     cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
 }
 .round-btn:active,.round-btn-active:active,.btn:active{
     color: white;
@@ -64,6 +69,7 @@ main{
 }
 html{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
     font-weight: 100;
     height: 100%;
     margin: 0;
