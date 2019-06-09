@@ -135,3 +135,7 @@ body{
 .img-icon{
     width: 15em;
 }
+
+.market-pp {
+    align-self: flex-start
+}
