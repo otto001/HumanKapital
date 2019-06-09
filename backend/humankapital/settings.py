@@ -123,10 +123,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 REST_FRAMEWORK = {
     "DEFAULT_PERMISSION_CLASSES": (
-        "rest_framework.permissions.IsAuthenticated",
-    ),
-    "DEFAULT_AUTHENTICATION_CLASSES": (
-        "rest_framework_jwt.authentication.JSONWebTokenAuthentication",
+        "rest_framework.permissions.AllowAny",
     ),
 }
 
@@ -165,3 +162,5 @@ JWT_AUTH = {
 
 ANONYMOUS_USER_NAME = None
 AUTH_USER_MODEL = "humankapital.Player"
+
+

@@ -1,14 +1,20 @@
 from django.db import models
 from .person import Person
+from rest_framework import serializers
 
 
-class AbstractEvent(models.Model):
-    class Meta:
-        abstract = True
+class Event(models.Model):
     person = models.ForeignKey(Person, on_delete=models.CASCADE)
-
-
-class UnfortunateEvent(AbstractEvent):
+    text = models.TextField()
+    positive = models.BooleanField()
     death = models.BooleanField()
     reason = models.CharField(max_length=128)
-    text = models.TextField()
+
+    def __str__(self):
+        return self.person.name
+
+
+class EventSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Event
+        fields = ("person", "text", "positive", "death", "reason")

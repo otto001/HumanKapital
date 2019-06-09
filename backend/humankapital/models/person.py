@@ -1,4 +1,5 @@
 from django.db import models
+from rest_framework import serializers
 
 
 social_backgrounds = ["upper", "middle", "lower"]
@@ -42,5 +43,16 @@ class Person(models.Model):
 
     alive = models.BooleanField(default=True)
 
+    @property
+    def name(self):
+        return self.first_name + " " + self.last_name
+
     def __str__(self):
-        return " ".join((self.first_name, self.last_name))
+        return self.name
+
+
+class PersonSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Person
+        fields = ("first_name", "last_name", "age", "salary_year", "gender", "social_background", "job", "alive")
+
