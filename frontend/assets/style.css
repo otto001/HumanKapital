@@ -105,6 +105,7 @@ body{
     padding: 0.5em 5em;
     background-color: #5f5fc4;
     border: 0;
+    color: white;
 }
 .btn:hover{
     background-color: #283593;
@@ -114,7 +115,16 @@ body{
     background-color: #001064;
 }
 
-.market-list li {
-    height: 64px;
+.img-list li {
     list-style-type: none;
+    border-color: black;
+    border-style: dotted;
+    border-width: 0.1em;
+    border-radius: 0.1em;
+    overflow-wrap: break-word;
+    float: left;
+    width: 15em;
+}
+.img-icon{
+    width: 15em;
 }
