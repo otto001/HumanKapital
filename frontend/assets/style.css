@@ -7,8 +7,8 @@ header{
 }
 .header-title{
     margin: 0.1em;
-    padding-left: 1em;
-    padding-top: 0.5em;
+    padding: 0.5em 1em;
+    float: left;
 }
 .header-right{
     float: right;
