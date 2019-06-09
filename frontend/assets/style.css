@@ -120,7 +120,18 @@ body{
     color: white;
     background-color: #001064;
 }
-
+.img-list{
+    margin: 1em 0em;
+    padding: 0;
+    display: grid;
+    cursor: pointer;
+}
+.img-list:hover{
+    background-color: rgba(216,220,214,1);
+}
+.img-list:active{
+    background-color: rgba(128,128,128,1);
+}
 .img-list li {
     list-style-type: none;
     border-color: black;
@@ -129,9 +140,97 @@ body{
     border-radius: 0.1em;
     overflow-wrap: break-word;
     float: left;
-    width: 15em;
-    margin: 1em;
+    margin: 0;
+    padding: 0;
 }
 .img-icon{
     width: 15em;
+    float: left;
+    height: 100%;
+}
+.bold{
+    font-weight: bold;
+}
+.right{
+    text-align: right;
+    float: right;
+}
+.left{
+    text-align: left;
+    float: left;
+}
+strong{
+    font-weight: bold;
+}
+.title{
+    font-size: 3em;
+    margin: 0.1em;
+}
+body {font-family: Arial, Helvetica, sans-serif;}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+  color: black;
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.modal-close {
+  color: #888888;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.modal-close:hover,
+.modal-close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+  padding: 2px 16px;
 }
