@@ -36,6 +36,7 @@
   src="https://code.jquery.com/jquery-3.4.1.min.js"
   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
   crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </body>
 
 </html>
@@ -94,7 +95,7 @@ fetch("/api/persons/tobuy").then(response => {return response.json()}).then(json
                       </div>
               </div>
               <div>
-                <button class="market-button nope">
+                <button class="market-button nope" data-person="${person.id}">
                   <i class="material-icons">clear<i/>
                   </button>
                 <button class="market-button buy">
@@ -113,8 +114,15 @@ fetch("/api/persons/tobuy").then(response => {return response.json()}).then(json
     
     $(".market-card").click(function() {
       $(this).hide().parent().children(".market-detail").removeClass("hide").show();
+    });
 
-    
+    $(".market-button.nope").click(function() {
+      var p_id = $(this).attr("data-person")
+      axios.post(`/api/person/${p_id}/nope`).then(() => {window.location.reload()})
+    });
+
+    $(".market-button.buy").click(function() {
+
     })
   })
 
