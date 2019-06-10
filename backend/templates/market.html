@@ -28,7 +28,7 @@
   </main>
 
   <footer>
-    <a href="market.html"><button class="round-btn-active"><i class="icon material-icons-outlined">store</i><br>Markt</button></a>
+    <a href="market"><button class="round-btn-active"><i class="icon material-icons-outlined">store</i><br>Markt</button></a>
     <a href="feed.html"><button class="round-btn"><i class="icon material-icons-outlined">speaker_notes</i><br>Feed</button></a>
     <a href="portfolio.html"><button class="round-btn"><i class="icon material-icons-outlined">table_chart</i><br>Portfolio</button></a>
   </footer>
@@ -65,7 +65,11 @@ fetch("/api/persons/tobuy").then(response => {return response.json()}).then(json
             habithtml += `<li>${habit.name}</li>`
         }
         
-        
+        var charHtml = ""
+        for(e of person.psychological_attributes)
+        {
+          charHtml += `<li>${e.name}</li>`
+        }
         var html =`<li>
 
   
@@ -93,25 +97,32 @@ fetch("/api/persons/tobuy").then(response => {return response.json()}).then(json
                     <div class="name-detail">${person.first_name} ${person.last_name}</div> 
                     <div class="age">${person.age}, ${genderName}</div>
                     <div class="job">
-                      <i class="material-icons">work</i> ${person.job.name} </div>
+                      <i class="material-icons">work</i> ${person.job.name}, ${person.salary_year/100}€/Jahr </div>
                       <div class="social">
                       <i class="material-icons">person</i> ${socialMap[person.social_background]} </div>
                       <div class="habit">
-                        <span>Hobbies</span>
+                        <span>Hobbies:</span>
                         <ul class="habit-list">${habithtml}</ul>
-                        </div>
-                </div>
+                      </div>
+                      <div class="habit">
+                        <span>Charakter Eigenschaften:</span>
+                        <ul class="habit-list">${charHtml}</ul>
+                      </div>
+                  </div>
               </div>
-              <div>
-                <button class="market-button nope" data-person="${person.id}">
-                  <i class="material-icons">clear<i/>
-                  </button>
-                <button class="market-button buy">
-                  <i class="material-icons">done<i/>
+              <div class="bottom-wrapper">
+                <div class="pitch">Verkauft <span>${person.percent}%</span> für <span>${person.value/100}€</span></div>
+                <div class="market-buttons">
+                  <button class="market-button nope" data-person="${person.id}">
+                    <i class="material-icons notinline">clear</i>
+                    </button>
+                  <button class="market-button buy">
+                    <i class="material-icons notinline">done</i>
 
-                  </button>
-                </div>
-            </div>
+                    </button>
+                  </div>
+              </div>
+            </div>  
           
         </div>
 

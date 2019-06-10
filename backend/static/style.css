@@ -134,7 +134,6 @@ body {
 
 .market-list li {
     list-style-type: none;
-    min-height: 100px;
 }
 
 .market-card {
@@ -209,12 +208,45 @@ body {
 .market-detail .habit-list {
     margin-top: 12px;
     padding-inline-start: 0px;
+    padding-left: 10px;
 }
+
 
 .hide {
     display: none;
 }
 
-.material-icons, .icon material-icons-outlined {
+.material-icons:not(.notinline), .material-icons-outlined {
     transform: translateY(6px);
 }
+
+.market-buttons {
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.market-buttons  button {
+    background-color: rgba(0,0,0,0.1);
+    border-radius: 50%;
+    border: none;
+    width: 42px;
+    height: 42px;
+}
+
+.pitch {
+    font-size: 21px;
+}
+
+.pitch span {
+    font-weight: 700;
+}
+
+.bottom-wrapper {
+    position: absolute;
+    bottom: 15px;
+    width: 100%;
+}
+

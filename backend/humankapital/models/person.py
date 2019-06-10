@@ -81,5 +81,5 @@ class PersonSerializer(serializers.ModelSerializer):
     class Meta:
         model = Person
         fields = ("id", "first_name", "last_name", "age", "salary_year", "gender", "social_background", "job", "alive",
-                  "psychological_attributes", "habits")
+                  "psychological_attributes", "habits", "value", "percent", "bio")
 
