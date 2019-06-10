@@ -43,6 +43,9 @@ class Person(models.Model):
 
     alive = models.BooleanField(default=True)
     value = models.IntegerField()
+    percent = models.IntegerField()
+
+    bio = models.TextField(blank=True)
 
     @property
     def name(self):
