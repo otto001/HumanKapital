@@ -19,5 +19,5 @@ class Acquisition(models.Model):
 class AcquisitionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Acquisition
-        fields = ("player", "person", "percent", "price")
+        fields = ("id", "player", "person", "percent", "price")
         read_only_fields = ("created", "sold")

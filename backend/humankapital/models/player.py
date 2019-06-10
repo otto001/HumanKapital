@@ -32,5 +32,5 @@ class Player(AbstractBaseUser, PermissionsMixin):
 class PlayerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Player
-        fields = ("balance","karma")
+        fields = ("id", "balance", "karma")
 

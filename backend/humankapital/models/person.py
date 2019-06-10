@@ -42,6 +42,7 @@ class Person(models.Model):
     psychological_attributes = models.ManyToManyField(PsychologicalAttributes)
 
     alive = models.BooleanField(default=True)
+    value = models.IntegerField()
 
     @property
     def name(self):
@@ -51,8 +52,31 @@ class Person(models.Model):
         return self.name
 
 
+class JobSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Job
+        fields = ("id", "risk", "name")
+
+
+class HabitSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Habit
+        fields = ("id", "risk", "name")
+
+
+class PsychologicalAttributesSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Habit
+        fields = ("id", "risk", "name")
+
+
 class PersonSerializer(serializers.ModelSerializer):
+    job = JobSerializer()
+    psychological_attributes = PsychologicalAttributesSerializer(many=True)
+    habits = HabitSerializer(many=True)
+
     class Meta:
         model = Person
-        fields = ("first_name", "last_name", "age", "salary_year", "gender", "social_background", "job", "alive")
+        fields = ("id", "first_name", "last_name", "age", "salary_year", "gender", "social_background", "job", "alive",
+                  "psychological_attributes", "habits")
 

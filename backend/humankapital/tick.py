@@ -44,15 +44,21 @@ def tick(delta_seconds):
         Person.objects.filter(alive=True).update(age=F('age')+1)
         last_year = v_time.time.year
 
-        death_age = random.randint(75, 90)
-        Person.objects.filter(age__gt=death_age).update(alive=False)
-
     v_time.time += timedelta(seconds=delta_seconds*balancing.time_warp)
     v_time.save()
 
     warp_factor = delta_seconds*balancing.time_warp/balancing.event_risk_divider
 
     for person in Person.objects.filter(alive=True):
+        die = 0.001
+        if person.age > 30 & person.age < 101:
+            die = die * 10**(person.age / 30 - 1)
+        if person.age > 100:
+            die = 0.21544
+        rdm = random.random()
+        if rdm < die:
+            person.alive = False
+            person.save(update_fields=["alive"])
 
         acq = person.acquisitions.filter(sold__isnull=True).first()
         if not acq:

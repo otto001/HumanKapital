@@ -121,8 +121,9 @@ body{
     background-color: #263238;
 }
 .img-list{
-    margin: 1em 0em;
+    margin: 0em;
     padding: 0;
+    padding-left: 0;
     display: grid;
     cursor: pointer;
 }
@@ -145,6 +146,16 @@ body{
 }
 .img-icon{
     width: 15em;
+}
+
+.market-list{
+    margin: 0em;
+    padding-left: 0;
+}
+
+
+.market-pp {
+    align-self: flex-start;
     float: left;
     height: 100%;
 }
