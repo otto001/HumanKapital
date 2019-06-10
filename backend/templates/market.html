@@ -17,9 +17,9 @@
     <div class="header-title">HUMANKAPITAL
     </div>
       <div class="header-right">
-        <div class="header-right-item"><i class="icon material-icons-outlined">account_balance</i> $10k</div>
+        <div class="header-left-item"><i class="icon material-icons-outlined">account_balance</i> 10.000€</div>
         <div class="header-right-item"><i class="icon material-icons-outlined">star_border</i> 100%</div>
-        <a href="index.html"><button class="round-btn"><span class="icon material-icons-outlined">exit_to_app</i></span></a>
+        
       </div>
   </header>
   <main>
@@ -36,6 +36,7 @@
   src="https://code.jquery.com/jquery-3.4.1.min.js"
   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
   crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </body>
 
 </html>
@@ -66,6 +67,9 @@ fetch("/api/persons/tobuy").then(response => {return response.json()}).then(json
         
         
         var html =`<li>
+
+  
+
         <div class="market-card">
             <div>
                 <img src= https://timedotcom.files.wordpress.com/2017/12/terry-crews-person-of-year-2017-time-magazine-2.jpg class="market-card-pp">            
@@ -76,25 +80,30 @@ fetch("/api/persons/tobuy").then(response => {return response.json()}).then(json
             </div>
         
         </div>
-        <div class="market-detail hide">
+
+
+    
+    <div class="market-detail hide">
             <div>
-              <div>
-                  <img src= https://timedotcom.files.wordpress.com/2017/12/terry-crews-person-of-year-2017-time-magazine-2.jpg class="market-card-pp">            
+              <div class="face-text">
+                <div>
+                    <img src= https://timedotcom.files.wordpress.com/2017/12/terry-crews-person-of-year-2017-time-magazine-2.jpg class="market-card-pp-detail">            
+                </div>
+                <div class="market-short-bio">
+                    <div class="name-detail">${person.first_name} ${person.last_name}</div> 
+                    <div class="age">${person.age}, ${genderName}</div>
+                    <div class="job">
+                      <i class="material-icons">work</i> ${person.job.name} </div>
+                      <div class="social">
+                      <i class="material-icons">person</i> ${socialMap[person.social_background]} </div>
+                      <div class="habit">
+                        <span>Hobbies</span>
+                        <ul class="habit-list">${habithtml}</ul>
+                        </div>
+                </div>
               </div>
-              <div class="market-short-bio">
-                  <div class="name">${person.first_name} ${person.last_name}</div> 
-                  <div class="age">${person.age}, ${genderName}</div>
-                  <div class="job">
-                    <i class="material-icons">work</i> ${person.job.name} </div>
-                    <div class="social">
-                    <i class="material-icons">person</i> ${socialMap[person.social_background]} </div>
-                    <div class="habit">
-                      <span>Hobbies</span>
-                      <ul>${habithtml}</ul>
-                      </div>
-              </div>
               <div>
-                <button class="market-button nope">
+                <button class="market-button nope" data-person="${person.id}">
                   <i class="material-icons">clear<i/>
                   </button>
                 <button class="market-button buy">
@@ -105,6 +114,10 @@ fetch("/api/persons/tobuy").then(response => {return response.json()}).then(json
             </div>
           
         </div>
+
+
+
+        
         </li>`
        
         $("#market-list").append(html)
@@ -113,8 +126,15 @@ fetch("/api/persons/tobuy").then(response => {return response.json()}).then(json
     
     $(".market-card").click(function() {
       $(this).hide().parent().children(".market-detail").removeClass("hide").show();
+    });
 
-    
+    $(".market-button.nope").click(function() {
+      var p_id = $(this).attr("data-person")
+      axios.post(`/api/person/${p_id}/nope`).then(() => {window.location.reload()})
+    });
+
+    $(".market-button.buy").click(function() {
+
     })
   })
 
