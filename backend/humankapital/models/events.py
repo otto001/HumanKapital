@@ -18,4 +18,4 @@ class Event(models.Model):
 class EventSerializer(serializers.ModelSerializer):
     class Meta:
         model = Event
-        fields = ("person", "text", "positive", "death", "reason", "decision")
+        fields = ("id", "person", "text", "positive", "death", "reason", "decision")
