@@ -5,7 +5,7 @@ from .jwt.rest import RefreshTokenView, ObtainTokenView, DeleteTokenView
 # handler404 = app_view
 from .tick import start
 from .api import ListPersonsApi, ListPersonToBuyApi, ListPersonBoughtApi, ListEventApi, ListPlayerApi, \
-    AcquisitionCreateApi, PersonSellApi
+    AcquisitionCreateApi, PersonSellApi, PersonNopeApi
 
 start()
 urlpatterns = [
@@ -21,6 +21,7 @@ urlpatterns = [
 
     path("api/acquisition/create", AcquisitionCreateApi.as_view()),
     path("api/person/<int:person>/sell", PersonSellApi.as_view()),
+    path("api/person/<int:person>/nope", PersonNopeApi.as_view()),
 
     path("auth/token/obtain", ObtainTokenView.as_view()),
     path("auth/token/refresh", RefreshTokenView.as_view()),

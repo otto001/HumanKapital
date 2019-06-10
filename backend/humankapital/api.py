@@ -6,6 +6,8 @@ from .models.events import Event, EventSerializer
 from .models.player import Player, PlayerSerializer
 from .models.acquisition import Acquisition, AcquisitionSerializer
 from django.utils import timezone
+from rest_framework.permissions import AllowAny
+from rest_framework.response import Response
 
 
 class ListPersonsApi(generics.ListAPIView):
@@ -53,3 +55,13 @@ class PersonSellApi(views.APIView):
         person_id = kwargs["person"]
         acquisitions = Acquisition.objects.filter(person_id=person_id, sold__isnull=True)
         acquisitions.update(sold=timezone.now())
+        return Response(status=200)
+
+
+class PersonNopeApi(views.APIView):
+    permission_classes = (AllowAny,)
+
+    def post(self, request, *args, **kwargs):
+        person_id = kwargs["person"]
+        Person.objects.filter(id=person_id).update(alive=False)
+        return Response(status=200)
