@@ -44,6 +44,9 @@ def tick(delta_seconds):
         Person.objects.filter(alive=True).update(age=F('age')+1)
         last_year = v_time.time.year
 
+        death_age = random.randint(75, 90)
+        Person.objects.filter(age__gt=death_age).update(alive=False)
+
     v_time.time += timedelta(seconds=delta_seconds*balancing.time_warp)
     v_time.save()
 
