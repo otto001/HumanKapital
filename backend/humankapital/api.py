@@ -6,6 +6,7 @@ from .models.events import Event, EventSerializer
 from .models.player import Player, PlayerSerializer
 from .models.acquisition import Acquisition, AcquisitionSerializer
 from django.utils import timezone
+from rest_framework.permissions import AllowAny
 
 
 class ListPersonsApi(generics.ListAPIView):
@@ -56,7 +57,8 @@ class PersonSellApi(views.APIView):
 
 
 class PersonNopeApi(views.APIView):
-
+    permission_classes = (AllowAny,)
+    
     def post(self, request, *args, **kwargs):
         person_id = kwargs["person"]
         Person.objects.filter(id=person_id).update(alive=False)
