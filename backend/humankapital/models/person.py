@@ -58,10 +58,25 @@ class JobSerializer(serializers.ModelSerializer):
         fields = ("id", "risk", "name")
 
 
+class HabitSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Habit
+        fields = ("id", "risk", "name")
+
+
+class PsychologicalAttributesSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Habit
+        fields = ("id", "risk", "name")
+
+
 class PersonSerializer(serializers.ModelSerializer):
     job = JobSerializer()
+    psychological_attributes = PsychologicalAttributesSerializer(many=True)
+    habits = HabitSerializer(many=True)
 
     class Meta:
         model = Person
-        fields = ("id", "first_name", "last_name", "age", "salary_year", "gender", "social_background", "job", "alive")
+        fields = ("id", "first_name", "last_name", "age", "salary_year", "gender", "social_background", "job", "alive",
+                  "psychological_attributes", "habits")
 
