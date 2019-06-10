@@ -43,6 +43,7 @@
 
 <script>
 fetch("/api/persons/tobuy").then(response => {return response.json()}).then(json => {
+  var socialMap = {upper: "Oberschicht", middle: "Mittelschicht", lower: "Unterschicht"}
     
     for (person of json) {
         console.log(person)
@@ -57,6 +58,12 @@ fetch("/api/persons/tobuy").then(response => {return response.json()}).then(json
         else if (person.gender == "d") {
             genderName = "Divers"
         }
+        var habithtml = ""
+        for(habit of person.habits)
+        {
+            habithtml += `<li>${habit.name}</li>`
+        }
+        
         
         var html =`<li>
         <div class="market-card">
@@ -77,7 +84,14 @@ fetch("/api/persons/tobuy").then(response => {return response.json()}).then(json
               <div class="market-short-bio">
                   <div class="name">${person.first_name} ${person.last_name}</div> 
                   <div class="age">${person.age}, ${genderName}</div>
-                  <div class="job">${person.job}
+                  <div class="job">
+                    <i class="material-icons">work</i> ${person.job.name} </div>
+                    <div class="social">
+                    <i class="material-icons">person</i> ${socialMap[person.social_background]} </div>
+                    <div class="habit">
+                      <span>Hobbies</span>
+                      <ul>${habithtml}</ul>
+                      </div>
               </div>
               <div>
                 <button class="market-button nope">
