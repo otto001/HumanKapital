@@ -51,9 +51,9 @@ def tick(delta_seconds):
 
     for person in Person.objects.filter(alive=True):
         die = 0.001
-        if Person.objects.age > 30 & Person.objects.age < 101:
-            die = die * 10**(Person.objects.age / 30 - 1)
-        if Person.objects.age > 100:
+        if person.age > 30 & person.age < 101:
+            die = die * 10**(person.age / 30 - 1)
+        if person.age > 100:
             die = 0.21544
         rdm = random.random()
         if rdm < die:
