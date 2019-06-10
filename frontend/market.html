@@ -7,53 +7,62 @@
   <link href="assets/style.css" rel="stylesheet" type="text/css">
   <link
     href="
-    https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+  https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
     rel="stylesheet">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="assets/style.js"></script>
   <title>Humankapital - Markt</title>
+  <script>
+    $(document).ready(function(){
+      $("#kim").on("click",function(event){
+      $("#myModal").css("display","block");
+      });
+    });
+  </script>
 </head>
 
 <body>
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+          <div class="modal-header">
+            <span class="modal-close">&times;</span>
+            <h2>Kim</h2>
+          </div>
+          <div class="modal-body">
+            <p>Beschreibung</p>
+            <ul>
+              <li><strong>Name: </strong>Kim</li>
+            </ul>
+          </div>
+          <div class="modal-footer">
+          </div>
+        </div>
+      
+      </div>
   <header>
 
     <div class="header-title">Humankapital
     </div>
     <div class="header-right">
-      <div class="header-right-item"><span class="icon material-icons-outlined">account_balance</span> $10k</div>
+      <div class="header-right-item"><i class="icon material-icons-outlined">account_balance</i> 10k€</div>
       <div class="header-right-item"><span class="icon material-icons-outlined">star_border</span> 100%</div>
       <a href="index.html" class="round-btn"><span class="icon material-icons-outlined">exit_to_app</span></a>
     </div>
   </header>
   <main>
     <ul class="img-list">
-      <li>
+      <li id="kim">
         <img src="assets/example_picture.png" class="img-icon">
-        <br>Kim
-        <br>Testbeispielbeschreibung!!! -->
-        lalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalala
-        <br>
-        <div class="center">
-          <button class="btn"><i class="material-icons-outlined">shopping_cart</i></button>
-        </div>
-      </li>
-      <li>
-        <img src="assets/example_picture.png" class="img-icon">
-        <br>Kim
-        <br>Testbeispielbeschreibung!!! -->
-        lalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalala
-        <br>
-        <div class="center">
-          <button class="btn"><i class="material-icons-outlined">shopping_cart</i></button>
-        </div>
-      </li>
-      <li>
-        <img src="assets/example_picture.png" class="img-icon">
-        <br>Kim
-        <br>Testbeispielbeschreibung!!! -->
-        lalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalalala
-        <br>
-        <div class="center">
-          <button class="btn"><i class="material-icons-outlined">shopping_cart</i></button>
+        <div class="left">
+          <p class="title">Kim</i>
+            <div>
+              19, Divers<br />
+              38.000€ Brutto<br />
+              9€ für 10%
+            </div>
         </div>
       </li>
     </ul>
