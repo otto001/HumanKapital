@@ -9,6 +9,7 @@ class Event(models.Model):
     positive = models.BooleanField()
     death = models.BooleanField()
     reason = models.CharField(max_length=128)
+    decision = models.BooleanField()
 
     def __str__(self):
         return self.person.name
@@ -17,4 +18,4 @@ class Event(models.Model):
 class EventSerializer(serializers.ModelSerializer):
     class Meta:
         model = Event
-        fields = ("person", "text", "positive", "death", "reason")
+        fields = ("person", "text", "positive", "death", "reason", "decision")
