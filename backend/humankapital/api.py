@@ -53,3 +53,10 @@ class PersonSellApi(views.APIView):
         person_id = kwargs["person"]
         acquisitions = Acquisition.objects.filter(person_id=person_id, sold__isnull=True)
         acquisitions.update(sold=timezone.now())
+
+
+class PersonNopeApi(views.APIView):
+
+    def post(self, request, *args, **kwargs):
+        person_id = kwargs["person"]
+        Person.objects.filter(id=person_id).update(alive=False)
