@@ -18,7 +18,7 @@ class ListPersonToBuyApi(generics.ListAPIView):
     serializer_class = PersonSerializer
 
     def filter_queryset(self, queryset):
-        return queryset.filter(Q(acquisitions__sold__isnull=False) | Q(acquisitions__isnull=True))
+        return queryset.filter(Q(acquisitions__sold__isnull=False) | Q(acquisitions__isnull=True)).filter(alive=True)
 
 
 class ListPersonBoughtApi(generics.ListAPIView):
@@ -26,7 +26,7 @@ class ListPersonBoughtApi(generics.ListAPIView):
     serializer_class = PersonSerializer
 
     def filter_queryset(self, queryset):
-        return queryset.filter(Q(acquisitions__sold__isnull=True) & Q(acquisitions__isnull=False))
+        return queryset.filter(Q(acquisitions__sold__isnull=True) & Q(acquisitions__isnull=False)).filter(alive=True)
 
 
 class ListEventApi(generics.ListAPIView):

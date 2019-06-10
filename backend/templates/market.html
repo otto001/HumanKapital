@@ -58,8 +58,18 @@ fetch("/api/persons/tobuy").then(response => {return response.json()}).then(json
             genderName = "Divers"
         }
         
-        var html =`<li><p>${person.first_name} ${person.last_name}</p> <p>${person.age}, ${genderName}</p></li>`
-       
+        var html =`<li>
+        <div class="market-card">
+            <div>
+                <img src= https://timedotcom.files.wordpress.com/2017/12/terry-crews-person-of-year-2017-time-magazine-2.jpg class="market-card-pp">            
+            </div>
+            <div class="market-short-bio">
+                <div class="name">${person.first_name} ${person.last_name}</div> 
+                <div class="age">${person.age}, ${genderName}</div>
+            </div>
+        
+        </div>
+        </li>`
        
         $("#market-list").append(html)
    
