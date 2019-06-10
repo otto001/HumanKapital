@@ -107,6 +107,10 @@ body {
 .market-list {
     max-width: 640px;
     margin: 0 auto;
+<<<<<<< Updated upstream
+=======
+    padding: 0;
+>>>>>>> Stashed changes
 }
 
 .market-list li {
@@ -141,4 +145,19 @@ body {
 .market-short-bio .age {
     font-size: 14px;
     font-weight: 300;
+}
+.market-detail {
+    position: absolute;
+    width: 100%;
+    margin: auto;
+    background: #fff;
+    top: 100px;
+    bottom: 71px;
+    z-index: 10;
+    box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
+    0px 5px 8px 0px rgba(0, 0, 0, 0.14),
+    0px 1px 14px 0px rgba(0, 0, 0, 0.12);
+}
+.hide {
+    display: none;
 }

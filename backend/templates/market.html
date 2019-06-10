@@ -69,15 +69,40 @@ fetch("/api/persons/tobuy").then(response => {return response.json()}).then(json
             </div>
         
         </div>
+        <div class="market-detail hide">
+            <div>
+              <div>
+                  <img src= https://timedotcom.files.wordpress.com/2017/12/terry-crews-person-of-year-2017-time-magazine-2.jpg class="market-card-pp">            
+              </div>
+              <div class="market-short-bio">
+                  <div class="name">${person.first_name} ${person.last_name}</div> 
+                  <div class="age">${person.age}, ${genderName}</div>
+                  <div class="job">${person.job}
+              </div>
+              <div>
+                <button class="market-button nope">
+                  <i class="material-icons">clear<i/>
+                  </button>
+                <button class="market-button buy">
+                  <i class="material-icons">done<i/>
+
+                  </button>
+                </div>
+            </div>
+          
+        </div>
         </li>`
        
         $("#market-list").append(html)
    
     }
     
-    
+    $(".market-card").click(function() {
+      $(this).hide().parent().children(".market-detail").removeClass("hide").show();
+
     
     })
+  })
 
 
 </script>
